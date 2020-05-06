@@ -232,7 +232,9 @@ class KakaocertController extends Controller
     return view('GetVerifyAuthResult', ['result' => $result]);
   }
 
-
+  /*
+  * 간편 전자서명 인증을 요청합니다.
+  */
   public function RequestESign(){
 
     // Kakaocert 이용기관코드, Kakaocert 파트너 사이트에서 확인
@@ -298,6 +300,9 @@ class KakaocertController extends Controller
 
   }
 
+  /*
+  * 간편 전자서명 요청결과를 확인합니다.
+  */
   public function GetESignResult(){
 
     // Kakaocert 이용기관코드, Kakaocert 파트너 사이트에서 확인
@@ -317,6 +322,4 @@ class KakaocertController extends Controller
 
     return view('GetESignResult', ['result' => $result]);
   }
-
-
 }
