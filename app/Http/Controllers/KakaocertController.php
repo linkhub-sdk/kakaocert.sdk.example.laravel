@@ -106,7 +106,7 @@ class KakaocertController extends Controller
     try {
         $receiptID = $this->KakaocertService->requestCMS($clientCode, $RequestCMS);
     }
-    catch(KakaocertException | LinkhubException $ke) {
+    catch(KakaocertException $ke) {
         $code = $ke->getCode();
         $message = $ke->getMessage();
         return view('Response', ['code' => $code, 'message' => $message]);
@@ -130,7 +130,7 @@ class KakaocertController extends Controller
     try {
       $result = $this->KakaocertService->getCMSResult($clientCode, $receiptID);
     }
-    catch(KakaocertException | LinkhubException $ke) {
+    catch(KakaocertException $ke) {
       $code = $ke->getCode();
       $message = $ke->getMessage();
       return view('Response', ['code' => $code, 'message' => $message]);
@@ -199,7 +199,7 @@ class KakaocertController extends Controller
       $receiptID = $this->KakaocertService->requestVerifyAuth($clientCode, $RequestVerifyAuth);
 
     }
-    catch(KakaocertException | LinkhubException $ke) {
+    catch(KakaocertException $ke) {
       $code = $ke->getCode();
       $message = $ke->getMessage();
       return view('Response', ['code' => $code, 'message' => $message]);
@@ -223,7 +223,7 @@ class KakaocertController extends Controller
     try {
       $result = $this->KakaocertService->getVerifyAuthResult($clientCode, $receiptID);
     }
-    catch(KakaocertException | LinkhubException $ke) {
+    catch(KakaocertException $ke) {
       $code = $ke->getCode();
       $message = $ke->getMessage();
       return view('Response', ['code' => $code, 'message' => $message]);
@@ -290,7 +290,7 @@ class KakaocertController extends Controller
       $receiptID = $this->KakaocertService->requestESign($clientCode, $RequestESign);
 
     }
-    catch(KakaocertException | LinkhubException $ke) {
+    catch(KakaocertException $ke) {
       $code = $ke->getCode();
       $message = $ke->getMessage();
       return view('Response', ['code' => $code, 'message' => $message]);
@@ -314,7 +314,7 @@ class KakaocertController extends Controller
     try {
       $result = $this->KakaocertService->getESignResult($clientCode, $receiptID);
     }
-    catch(KakaocertException | LinkhubException $ke) {
+    catch(KakaocertException $ke) {
       $code = $ke->getCode();
       $message = $ke->getMessage();
       return view('Response', ['code' => $code, 'message' => $message]);
