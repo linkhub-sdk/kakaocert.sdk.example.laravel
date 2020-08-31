@@ -9,7 +9,7 @@
     <p class="heading1">Kakaocert SDK PHP Laravel Example.</p>
     <br/>
     <fieldset class="fieldset1">
-        <legend>간편 전자서명 API 목록</legend>
+        <legend>전자서명 API 목록</legend>
         <ul>
             <li><a href="Kakaocert/RequestESign">RequestESign</a> - 전자서명 요청 API</li>
             <li><a href="Kakaocert/GetESignResult">GetESignResult</a> - 전자서명 결과정보 확인 API</li>

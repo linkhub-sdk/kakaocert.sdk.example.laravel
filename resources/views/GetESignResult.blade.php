@@ -32,7 +32,8 @@
             <li>viewDT (수신자 카카오톡 인증메시지 확인일시) : {{ $result->viewDT }}</li>
             <li>completeDT (수신자 카카오톡 전자서명 완료일시	) : {{ $result->completeDT }}</li>
             <li>verifyDT (전자서명 검증일시) : {{ $result->verifyDT }}</li>
-
+            <li>tx_id (카카오톡 트랜잭션아이디) : {{ $result->tx_id }}</li>
+            <li>appUseYN (AppToApp 사용여부) : {{ $result->appUseYN }}</li>
         </ul>
     </fieldset>
 </div>

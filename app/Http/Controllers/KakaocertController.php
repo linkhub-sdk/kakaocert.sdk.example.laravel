@@ -233,37 +233,42 @@ class KakaocertController extends Controller
   }
 
   /*
-  * 간편 전자서명 인증을 요청합니다.
+  * 전자서명 인증을 요청합니다.
   */
   public function RequestESign(){
 
     // Kakaocert 이용기관코드, Kakaocert 파트너 사이트에서 확인
     $clientCode = '020040000001';
 
-    // 간편 전자서명 요청정보 객체
+    // 전자서명 AppToApp 호출여부
+    $isAppUseYN = true;
+
+    // 전자서명 요청정보 객체
     $RequestESign = new RequestESign();
 
     // 고객센터 전화번호, 카카오톡 인증메시지 중 "고객센터" 항목에 표시
     $RequestESign->CallCenterNum = '1600-8536';
 
     // 인증요청 만료시간(초), 최대값 1000, 인증요청 만료시간(초) 내에 미인증시 만료 상태로 처리됨
-  	$RequestESign->Expires_in = 60;
+  	$RequestESign->Expires_in = 6;
 
     // 수신자 생년월일, 형식 : YYYYMMDD
-  	$RequestESign->ReceiverBirthDay = '19700101';
+  	$RequestESign->ReceiverBirthDay = '19900108';
 
     // 수신자 휴대폰번호
-  	$RequestESign->ReceiverHP = '01012341234';
+  	$RequestESign->ReceiverHP = '01043245117';
 
     // 수신자 성명
-  	$RequestESign->ReceiverName = '테스트';
+  	$RequestESign->ReceiverName = '정요한';
 
     // 별칭코드, 이용기관이 생성한 별칭코드 (파트너 사이트에서 확인가능)
     // 카카오톡 인증메시지 중 "요청기관" 항목에 표시
     // 별칭코드 미 기재시 이용기관의 이용기관명이 "요청기관" 항목에 표시
+    // AppToApp 인증방식 이용시 적용되지 않음.
   	$RequestESign->SubClientID = '';
 
     // 인증요청 메시지 부가내용, 카카오톡 인증메시지 중 상단에 표시
+    // AppToApp 인증방식 이용시 적용되지 않음.
   	$RequestESign->TMSMessage = 'TMSMessage0423';
 
     // 인증요청 메시지 제목, 카카오톡 인증메시지 중 "요청구분" 항목에 표시
@@ -281,13 +286,13 @@ class KakaocertController extends Controller
     // 수신자 실명확인 여부
     // true : 카카오페이가 본인인증을 통해 확보한 사용자 실명과 ReceiverName 값을 비교
     // false : 카카오페이가 본인인증을 통해 확보한 사용자 실명과 RecevierName 값을 비교하지 않음.
-  	$RequestESign->isVerifyNameYN = false;
+  	$RequestESign->isVerifyNameYN = true;
 
     // PayLoad, 이용기관이 생성한 payload(메모) 값
     $RequestESign->PayLoad = 'Payload123';
 
     try {
-      $receiptID = $this->KakaocertService->requestESign($clientCode, $RequestESign);
+      $response = $this->KakaocertService->requestESign($clientCode, $RequestESign, $isAppUseYN);
 
     }
     catch(KakaocertException $ke) {
@@ -296,23 +301,27 @@ class KakaocertController extends Controller
       return view('Response', ['code' => $code, 'message' => $message]);
     }
 
-    return view('ReturnValue', ['filedName' => "간편 전자서명 요청 접수아이디", 'value' => $receiptID]);
+    return view('ReturnRequestESign', ['receiptId' => $response->receiptId, 'tx_id' => $response->tx_id]);
 
   }
 
   /*
-  * 간편 전자서명 요청결과를 확인합니다.
+  * 전자서명 요청결과를 확인합니다.
   */
   public function GetESignResult(){
 
     // Kakaocert 이용기관코드, Kakaocert 파트너 사이트에서 확인
     $clientCode = '020040000001';
 
-    // 간편 전자서명 요청시 반환받은 접수아이디
-    $receiptID = '020050613504700001';
+    // 전자서명 요청시 반환받은 접수아이디
+    $receiptID = '020083118000400001';
+
+    // 전자서명 AppToApp 인증시, 앱스킴으로 반환받은 서명값 기재
+    // TalkToMessage 방식 이용시 null 기재
+    $signature = null;
 
     try {
-      $result = $this->KakaocertService->getESignResult($clientCode, $receiptID);
+      $result = $this->KakaocertService->getESignResult($clientCode, $receiptID, $signature);
     }
     catch(KakaocertException $ke) {
       $code = $ke->getCode();
