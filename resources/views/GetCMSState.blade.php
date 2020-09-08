@@ -25,7 +25,7 @@
             <li>expireDT (인증요청 만료일시) : {{ $result->expireDT }}</li>
             <li>tmstitle (인증요청 메시지 제목) : {{ $result->tmstitle }}</li>
             <li>tmsmessage (인증요청 메시지 부가내용) : {{ $result->tmsmessage }}</li>
-            <li>signedData (전자서명 데이터 전문) : {{ $result->signedData }}</li>
+
             <li>subClientName (별칭) : {{ $result->subClientName }}</li>
             <li>subClientCode (별칭코드) : {{ $result->subClientCode }}</li>
             <li>viewDT (수신자 카카오톡 인증메시지 확인일시) : {{ $result->viewDT }}</li>

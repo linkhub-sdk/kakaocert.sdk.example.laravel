@@ -58,10 +58,10 @@ class KakaocertController extends Controller
   	$RequestCMS->ReceiverBirthDay = '19700101';
 
     // 수신자 휴대폰번호
-  	$RequestCMS->ReceiverHP = '01012341234';
+  	$RequestCMS->ReceiverHP = '01043245117';
 
     // 수신자 성명
-  	$RequestCMS->ReceiverName = '테스트';
+  	$RequestCMS->ReceiverName = '정요한';
 
     // 예금주명
     $RequestCMS->BankAccountName = '예금주명';
@@ -117,18 +117,18 @@ class KakaocertController extends Controller
   }
 
   /*
-  * 자동이체 출금동의 요청결과를 확인합니다.
+  * 자동이체 출금동의 서명상태를 확인합니다.
   */
-  public function GetCMSResult(){
+  public function GetCMSState(){
 
     // Kakaocert 이용기관코드, Kakaocert 파트너 사이트에서 확인
     $clientCode = '020040000001';
 
     // 자동이체 출금동의 요청시 반환받은 접수아이디
-    $receiptID = '020050612225500001';
+    $receiptID = '020090816455000001';
 
     try {
-      $result = $this->KakaocertService->getCMSResult($clientCode, $receiptID);
+      $result = $this->KakaocertService->getCMSState($clientCode, $receiptID);
     }
     catch(KakaocertException $ke) {
       $code = $ke->getCode();
@@ -136,7 +136,30 @@ class KakaocertController extends Controller
       return view('Response', ['code' => $code, 'message' => $message]);
     }
 
-    return view('GetCMSResult', ['result' => $result]);
+    return view('GetCMSState', ['result' => $result]);
+  }
+
+  /*
+  * 자동이체 출금동의 서명을 검증합니다.
+  */
+  public function VerifyCMS(){
+
+    // Kakaocert 이용기관코드, Kakaocert 파트너 사이트에서 확인
+    $clientCode = '020040000001';
+
+    // 자동이체 출금동의 요청시 반환받은 접수아이디
+    $receiptID = '020090816455000001';
+
+    try {
+      $result = $this->KakaocertService->verifyCMS($clientCode, $receiptID);
+    }
+    catch(KakaocertException $ke) {
+      $code = $ke->getCode();
+      $message = $ke->getMessage();
+      return view('Response', ['code' => $code, 'message' => $message]);
+    }
+
+    return view('ResponseVerify', ['result' => $result]);
   }
 
   /*
@@ -162,10 +185,10 @@ class KakaocertController extends Controller
   	$RequestVerifyAuth->ReceiverBirthDay = '19700101';
 
     // 수신자 휴대폰번호
-  	$RequestVerifyAuth->ReceiverHP = '01012341234';
+  	$RequestVerifyAuth->ReceiverHP = '01043245117';
 
     // 수신자 성명
-  	$RequestVerifyAuth->ReceiverName = '테스트';
+  	$RequestVerifyAuth->ReceiverName = '정요한';
 
     // 별칭코드, 이용기관이 생성한 별칭코드 (파트너 사이트에서 확인가능)
     // 카카오톡 인증메시지 중 "요청기관" 항목에 표시
@@ -210,18 +233,18 @@ class KakaocertController extends Controller
   }
 
   /*
-  * 본인인증 결과정보를 확인합니다.
+  * 본인인증 인증상태를 확인합니다.
   */
-  public function GetVerifyAuthResult(){
+  public function GetVerifyAuthState(){
 
     // Kakaocert 이용기관코드, Kakaocert 파트너 사이트에서 확인
     $clientCode = '020040000001';
 
     // 본인인증 요청시 반환받은 접수아이디
-    $receiptID = '020050613354900001';
+    $receiptID = '020090816475200001';
 
     try {
-      $result = $this->KakaocertService->getVerifyAuthResult($clientCode, $receiptID);
+      $result = $this->KakaocertService->getVerifyAuthState($clientCode, $receiptID);
     }
     catch(KakaocertException $ke) {
       $code = $ke->getCode();
@@ -229,7 +252,30 @@ class KakaocertController extends Controller
       return view('Response', ['code' => $code, 'message' => $message]);
     }
 
-    return view('GetVerifyAuthResult', ['result' => $result]);
+    return view('GetVerifyAuthState', ['result' => $result]);
+  }
+
+  /*
+  * 본인인증 서명을 검증합니다.
+  */
+  public function VerifyAuth(){
+
+    // Kakaocert 이용기관코드, Kakaocert 파트너 사이트에서 확인
+    $clientCode = '020040000001';
+
+    // 본인인증 요청시 반환받은 접수아이디
+    $receiptID = '020090816475200001';
+
+    try {
+      $result = $this->KakaocertService->verifyAuth($clientCode, $receiptID);
+    }
+    catch(KakaocertException $ke) {
+      $code = $ke->getCode();
+      $message = $ke->getMessage();
+      return view('Response', ['code' => $code, 'message' => $message]);
+    }
+
+    return view('ResponseVerify', ['result' => $result]);
   }
 
   /*
@@ -250,16 +296,16 @@ class KakaocertController extends Controller
     $RequestESign->CallCenterNum = '1600-8536';
 
     // 인증요청 만료시간(초), 최대값 1000, 인증요청 만료시간(초) 내에 미인증시 만료 상태로 처리됨
-  	$RequestESign->Expires_in = 6;
+  	$RequestESign->Expires_in = 60;
 
     // 수신자 생년월일, 형식 : YYYYMMDD
-  	$RequestESign->ReceiverBirthDay = '19800101';
+  	$RequestESign->ReceiverBirthDay = '19700101';
 
     // 수신자 휴대폰번호
-  	$RequestESign->ReceiverHP = '010111222';
+  	$RequestESign->ReceiverHP = '01043245117';
 
     // 수신자 성명
-  	$RequestESign->ReceiverName = '테스트';
+  	$RequestESign->ReceiverName = '정요한';
 
     // 별칭코드, 이용기관이 생성한 별칭코드 (파트너 사이트에서 확인가능)
     // 카카오톡 인증메시지 중 "요청기관" 항목에 표시
@@ -306,22 +352,18 @@ class KakaocertController extends Controller
   }
 
   /*
-  * 전자서명 요청결과를 확인합니다.
+  * 전자서명 서명상태를 확인합니다.
   */
-  public function GetESignResult(){
+  public function GetESignState(){
 
     // Kakaocert 이용기관코드, Kakaocert 파트너 사이트에서 확인
     $clientCode = '020040000001';
 
     // 전자서명 요청시 반환받은 접수아이디
-    $receiptID = '020083118000400001';
-
-    // 전자서명 AppToApp 인증시, 앱스킴으로 반환받은 서명값 기재
-    // TalkToMessage 방식 이용시 null 기재
-    $signature = null;
+    $receiptID = '020090816494800001';
 
     try {
-      $result = $this->KakaocertService->getESignResult($clientCode, $receiptID, $signature);
+      $result = $this->KakaocertService->getESignState($clientCode, $receiptID);
     }
     catch(KakaocertException $ke) {
       $code = $ke->getCode();
@@ -329,6 +371,35 @@ class KakaocertController extends Controller
       return view('Response', ['code' => $code, 'message' => $message]);
     }
 
-    return view('GetESignResult', ['result' => $result]);
+    return view('GetESignState', ['result' => $result]);
   }
+
+  /*
+  * 전자서명 서명을 검증합니다.
+  */
+  public function VerifyESign(){
+
+    // Kakaocert 이용기관코드, Kakaocert 파트너 사이트에서 확인
+    $clientCode = '020040000001';
+
+    // 전자서명 요청시 반환받은 접수아이디
+    $receiptID = '020090816494800001';
+
+    // 전자서명 AppToApp 인증시, 앱스킴으로 반환받은 서명값 기재
+    // TalkToMessage 방식 이용시 null 기재
+    $signature = null;
+
+    try {
+      $result = $this->KakaocertService->verifyESign($clientCode, $receiptID, $signature);
+    }
+    catch(KakaocertException $ke) {
+      $code = $ke->getCode();
+      $message = $ke->getMessage();
+      return view('Response', ['code' => $code, 'message' => $message]);
+    }
+
+    return view('ResponseVerify', ['result' => $result]);
+  }
+
+
 }
