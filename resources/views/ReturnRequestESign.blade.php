@@ -11,8 +11,8 @@
     <fieldset class="fieldset1">
         <legend>{{\Request::fullUrl()}}</legend>
         <ul>
-            <li>접수아이디 (receiptId) :  {{ $receiptId }}</li>
-            <li>[AppToApp] 카카오톡 트랜잭션아이디 (tx_id) :  {{ $tx_id }}</li>
+            <li>receiptId (접수아이디)  :  {{ $receiptId }}</li>
+            <li>tx_id (카카오톡 트랜잭션아이디) [AppToApp-앱스킴 호출시 기재] :  {{ $tx_id }}</li>
         </ul>
     </fieldset>
 </div>

@@ -12,7 +12,7 @@
         <legend>{{\Request::fullUrl()}}</legend>
         <ul>
             <li>접수아이디 (receiptId) :  {{ $result->receiptId }}</li>
-            <li>전자서명 데이터 (signedData) :  {{ $result->signedData }}</li>
+            <li>전자서명 데이터 전문 (signedData) :  {{ $result->signedData }}</li>
         </ul>
     </fieldset>
 </div>
