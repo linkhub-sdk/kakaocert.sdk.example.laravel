@@ -39,8 +39,7 @@
         },
         "classmap": [
             "database/seeds",
-            "database/factories",
-            "vendor/linkhub/kakaocert/src/Kakaocert.php"
+            "database/factories"
         ]
     },
     "autoload-dev": {
