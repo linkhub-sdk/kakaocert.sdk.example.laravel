@@ -1118,7 +1118,7 @@
         },
         {
             "name": "linkhub/kakaocert",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/linkhub-sdk/kakaocert.sdk.php7.git",
