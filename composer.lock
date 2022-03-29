@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c67ae9719b006663df1eb27344682ca2",
+    "content-hash": "217b477bf15e061f8396a088b7f50e67",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -630,16 +630,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.6.1",
+            "version": "1.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
-                "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/337e3ad8e5716c15f9657bd214d16cc5e69df268",
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268",
                 "shasum": ""
             },
             "require": {
@@ -652,24 +652,24 @@
             },
             "require-dev": {
                 "ext-zlib": "*",
-                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.10"
             },
             "suggest": {
-                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+                "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Psr7\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -677,12 +677,33 @@
             ],
             "authors": [
                 {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
                 },
                 {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
                     "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
                     "homepage": "https://github.com/Tobion"
                 }
             ],
@@ -697,7 +718,25 @@
                 "uri",
                 "url"
             ],
-            "time": "2019-07-01T23:21:34+00:00"
+            "support": {
+                "issues": "https://github.com/guzzle/psr7/issues",
+                "source": "https://github.com/guzzle/psr7/tree/1.8.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-03-20T21:51:18+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1115,6 +1154,95 @@
             ],
             "description": "Mime-type detection for Flysystem",
             "time": "2020-08-09T10:34:01+00:00"
+        },
+        {
+            "name": "linkhub/kakaocert",
+            "version": "2.50.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/linkhub-sdk/kakaocert.sdk.php7.git",
+                "reference": "7fcbf2043240490059d7cddf95dc6c6ead681108"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/linkhub-sdk/kakaocert.sdk.php7/zipball/7fcbf2043240490059d7cddf95dc6c6ead681108",
+                "reference": "7fcbf2043240490059d7cddf95dc6c6ead681108",
+                "shasum": ""
+            },
+            "require": {
+                "linkhub/linkhub": "1.4.2",
+                "php": ">=7.1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Linkhub\\Kakaocert\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Kakaocert SDK for php7",
+            "homepage": "https://www.linkhub.co.kr/",
+            "keywords": [
+                "kakaocert",
+                "linkhub"
+            ],
+            "support": {
+                "email": "code@linkhub.co.kr",
+                "issues": "https://github.com/linkhub-sdk/linkhub.auth.php7/issues",
+                "source": "https://github.com/linkhub-sdk/linkhub.auth.php7"
+            },
+            "time": "2022-02-28T04:39:32+00:00"
+        },
+        {
+            "name": "linkhub/linkhub",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/linkhub-sdk/linkhub.auth.php7.git",
+                "reference": "0b89810b512b5575307ac308725b908e660d2dbc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/linkhub-sdk/linkhub.auth.php7/zipball/0b89810b512b5575307ac308725b908e660d2dbc",
+                "reference": "0b89810b512b5575307ac308725b908e660d2dbc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Linkhub\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Linkhub Corp",
+                    "email": "code@linkhub.co.kr",
+                    "homepage": "https://github.com/linkhub-sdk/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Linkhub Authority SDK for php7",
+            "homepage": "https://www.linkhub.co.kr",
+            "keywords": [
+                "linkhub",
+                "popbill"
+            ],
+            "support": {
+                "email": "code@linkhub.co.kr",
+                "issues": "https://github.com/linkhub-sdk/linkhub.auth.php7/issues",
+                "source": "https://github.com/linkhub-sdk/linkhub.auth.php7"
+            },
+            "time": "2022-02-28T04:30:31+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1632,6 +1760,9 @@
                 "request",
                 "response"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/master"
+            },
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
@@ -1839,6 +1970,10 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
+            "support": {
+                "issues": "https://github.com/ralouphie/getallheaders/issues",
+                "source": "https://github.com/ralouphie/getallheaders/tree/develop"
+            },
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
@@ -5977,5 +6112,6 @@
     "platform": {
         "php": "^7.2.5"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
 }
