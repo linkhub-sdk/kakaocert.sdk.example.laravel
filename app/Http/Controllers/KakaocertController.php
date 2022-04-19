@@ -57,6 +57,9 @@ class KakaocertController extends Controller
     // 고객센터 전화번호, 카카오톡 인증메시지 중 "고객센터" 항목에 표시
     $RequestCMS->CallCenterNum = '1600-8536';
 
+    // 고객센터명
+    $RequestCMS->CallCenterName = '테스트';
+
     // 인증요청 만료시간(초), 최대값 1000, 인증요청 만료시간(초) 내에 미인증시 만료 상태로 처리됨
   	$RequestCMS->Expires_in = 60;
 
@@ -186,6 +189,9 @@ class KakaocertController extends Controller
     // 고객센터 전화번호, 카카오톡 인증메시지 중 "고객센터" 항목에 표시
     $RequestVerifyAuth->CallCenterNum = '1600-8536';
 
+    // 고객센터명
+    $RequestVerifyAuth->CallCenterName = '테스트';
+
     // 인증요청 만료시간(초), 최대값 1000, 인증요청 만료시간(초) 내에 미인증시 만료 상태로 처리됨
   	$RequestVerifyAuth->Expires_in = 60;
 
@@ -305,6 +311,9 @@ class KakaocertController extends Controller
 
     // 고객센터 전화번호, 카카오톡 인증메시지 중 "고객센터" 항목에 표시
     $RequestESign->CallCenterNum = '1600-8536';
+
+    // 고객센터명
+    $RequestESign->CallCenterName = '테스트';
 
     // 인증요청 만료시간(초), 최대값 1000, 인증요청 만료시간(초) 내에 미인증시 만료 상태로 처리됨
   	$RequestESign->Expires_in = 60;
