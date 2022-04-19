@@ -29,6 +29,9 @@ class KakaocertController extends Controller
 
     // 카카오써트 API 서비스 고정 IP 사용여부, true-사용, false-미사용, 기본값(false)
     $this->KakaocertService->UseStaticIP(config('kakaocert.UseStaticIP'));
+
+    // 로컬시스템 시간 사용 여부 true(기본값) - 사용, false(미사용)
+    $this->KakaocertService->UseLocalTimeYN(config('kakaocert.UseLocalTimeYN'));
   }
 
   // HTTP Get Request URI -> 함수 라우팅 처리 함수
