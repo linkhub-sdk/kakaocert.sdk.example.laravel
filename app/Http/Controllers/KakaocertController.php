@@ -68,7 +68,7 @@ class KakaocertController extends Controller
     $RequestCMS->Expires_in = 60;
 
     // 수신자 생년월일, 형식 : YYYYMMDD
-    $RequestCMS->ReceiverBirthDay = '19700101';
+    $RequestCMS->ReceiverBirthDay = '19941219';
 
     // 수신자 휴대폰번호
     $RequestCMS->ReceiverHP = '010111222';
@@ -117,7 +117,7 @@ class KakaocertController extends Controller
     $RequestCMS->PayLoad = 'Payload123';
 
     try {
-        $receiptID = $this->KakaocertService->requestCMS($clientCode, $RequestCMS, $isAppUseYN);
+        $response = $this->KakaocertService->requestCMS($clientCode, $RequestCMS, $isAppUseYN);
     }
     catch(KakaocertException $ke) {
         $code = $ke->getCode();
@@ -126,7 +126,7 @@ class KakaocertController extends Controller
     }
 
 
-    return view('ReturnValue', ['filedName' => "자동이체 출금동의 접수아이디", 'value' => $receiptID]);
+    return view('ReturnRequestCMS', ['receiptId' => $response->receiptId, 'tx_id' => $response->tx_id]);
   }
 
   /*
