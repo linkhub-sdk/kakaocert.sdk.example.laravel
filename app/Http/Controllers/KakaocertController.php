@@ -68,7 +68,7 @@ class KakaocertController extends Controller
     $RequestCMS->Expires_in = 60;
 
     // 수신자 생년월일, 형식 : YYYYMMDD
-    $RequestCMS->ReceiverBirthDay = '19941219';
+    $RequestCMS->ReceiverBirthDay = '19700101';
 
     // 수신자 휴대폰번호
     $RequestCMS->ReceiverHP = '010111222';
@@ -138,7 +138,7 @@ class KakaocertController extends Controller
     $clientCode = '020040000001';
 
     // 자동이체 출금동의 요청시 반환받은 접수아이디
-    $receiptID = '020090816455000001';
+    $receiptID = '022050816455000001';
 
     try {
       $result = $this->KakaocertService->getCMSState($clientCode, $receiptID);
@@ -163,7 +163,7 @@ class KakaocertController extends Controller
     $clientCode = '020040000001';
 
     // 자동이체 출금동의 요청시 반환받은 접수아이디
-    $receiptID = '020090816455000001';
+    $receiptID = '022050816455000001';
 
     try {
       $result = $this->KakaocertService->verifyCMS($clientCode, $receiptID);
@@ -259,7 +259,7 @@ class KakaocertController extends Controller
     $clientCode = '020040000001';
 
     // 본인인증 요청시 반환받은 접수아이디
-    $receiptID = '020090816475200001';
+    $receiptID = '022050816475200001';
 
     try {
       $result = $this->KakaocertService->getVerifyAuthState($clientCode, $receiptID);
@@ -285,7 +285,7 @@ class KakaocertController extends Controller
     $clientCode = '020040000001';
 
     // 본인인증 요청시 반환받은 접수아이디
-    $receiptID = '020090816475200001';
+    $receiptID = '022050816475200001';
 
     try {
       $result = $this->KakaocertService->verifyAuth($clientCode, $receiptID);
@@ -384,7 +384,7 @@ class KakaocertController extends Controller
     $clientCode = '020040000001';
 
     // 전자서명 요청시 반환받은 접수아이디
-    $receiptID = '020090816494800001';
+    $receiptID = '022050816494800001';
 
     try {
       $result = $this->KakaocertService->getESignState($clientCode, $receiptID);
@@ -409,7 +409,7 @@ class KakaocertController extends Controller
     $clientCode = '020040000001';
 
     // 전자서명 요청시 반환받은 접수아이디
-    $receiptID = '020090816494800001';
+    $receiptID = '022050816494800001';
 
     // [AppToApp 인증] 앱스킴 성공처리시 반환되는 서명값(iOS-sig, Android-signature) 기재
     // TalkToMessage 방식 이용시 null 기재
