@@ -165,8 +165,12 @@ class KakaocertController extends Controller
     // 자동이체 출금동의 요청시 반환받은 접수아이디
     $receiptID = '022050816455000001';
 
+    // [AppToApp 인증] 앱스킴 성공처리시 반환되는 서명값(iOS-sig, Android-signature) 기재
+    // TalkToMessage 방식 이용시 null 기재
+    $signature = null;
+
     try {
-      $result = $this->KakaocertService->verifyCMS($clientCode, $receiptID);
+      $result = $this->KakaocertService->verifyCMS($clientCode, $receiptID, $signature);
     }
     catch(KakaocertException $ke) {
       $code = $ke->getCode();
