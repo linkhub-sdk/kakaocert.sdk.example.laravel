@@ -45,6 +45,7 @@ class KakaocertController extends Controller
   * - 해당 서비스는 전자서명을 하는 당사자와 출금계좌의 예금주가 동일한 경우에만 사용이 가능합니다.
   * - 전자서명 당사자와 출금계좌의 예금주가 동일인임을 체크하는 의무는 이용기관에 있습니다.
   * - 금융결제원에 증빙자료(전자서명 데이터) 제출은 이용기관 측 에서 진행해야 합니다.
+  * - https://www.kakaocert.com/docs/CMS/API/php#RequestCMS
   */
   public function RequestCMS(){
 
@@ -131,6 +132,7 @@ class KakaocertController extends Controller
 
   /*
   * 자동이체 출금동의 요청에 대한 서명 상태를 확인합니다.
+  * - https://www.kakaocert.com/docs/CMS/API/php#GetCMSState
   */
   public function GetCMSState(){
 
@@ -156,6 +158,7 @@ class KakaocertController extends Controller
   * 자동이체 출금동의 서명을 검증합니다.
   * - 서명검증시 전자서명 데이터 전문(signedData)이 반환됩니다.
   * - 카카오페이 서비스 운영정책에 따라 검증 API는 1회만 호출할 수 있습니다. 재시도시 오류처리됩니다.
+  * - https://www.kakaocert.com/docs/CMS/API/php#VerifyCMS
   */
   public function VerifyCMS(){
 
@@ -185,6 +188,7 @@ class KakaocertController extends Controller
   * 본인인증을 요청합니다.
   * - 본인인증 서비스에서 이용기관이 생성하는 Token은 사용자가 전자서명할 원문이 됩니다. 이는 보안을 위해 1회용으로 생성해야 합니다.
   * - 사용자는 이용기관이 생성한 1회용 토큰을 서명하고, 이용기관은 그 서명값을 검증함으로써 사용자에 대한 인증의 역할을 수행하게 됩니다.
+  * - https://www.kakaocert.com/docs/verifyAuth/API/php#RequestVerifyAuth
   */
   public function RequestVerifyAuth(){
 
@@ -256,6 +260,7 @@ class KakaocertController extends Controller
 
   /*
   * 본인인증 요청에 대한 서명 상태를 확인합니다.
+  * - https://www.kakaocert.com/docs/verifyAuth/API/php#GetVerifyAuthState
   */
   public function GetVerifyAuthState(){
 
@@ -282,6 +287,7 @@ class KakaocertController extends Controller
   * - 서명검증시 전자서명 데이터 전문(signedData)이 반환됩니다.
   * - 본인인증 요청시 기재한 Token과 서명 검증시 반환되는 signedData의 동일여부를 확인하여 본인인증 검증을 완료합니다.
   * - 카카오페이 서비스 운영정책에 따라 검증 API는 1회만 호출할 수 있습니다. 재시도시 오류처리됩니다.
+  * - https://www.kakaocert.com/docs/verifyAuth/API/php#F-VerifyAuth
   */
   public function VerifyAuth(){
 
@@ -305,6 +311,7 @@ class KakaocertController extends Controller
 
   /*
   * 전자서명 서명을 요청합니다.
+  * - https://www.kakaocert.com/docs/ESign/API/php#RequestESign
   */
   public function RequestESign(){
 
@@ -381,6 +388,7 @@ class KakaocertController extends Controller
 
   /*
   * 전자서명 서명 상태를 확인합니다.
+  * - https://www.kakaocert.com/docs/ESign/API/php#GetESignState
   */
   public function GetESignState(){
 
@@ -406,6 +414,7 @@ class KakaocertController extends Controller
   * 전자서명 서명을 검증합니다.
   * - 서명검증시 전자서명 데이터 전문(signedData)이 반환됩니다.
   * - 카카오페이 서비스 운영정책에 따라 검증 API는 1회만 호출할 수 있습니다. 재시도시 오류처리됩니다.
+  * - https://www.kakaocert.com/docs/ESign/API/php#VerifyESign
   */
   public function VerifyESign(){
 
